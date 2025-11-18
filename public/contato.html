@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato</title>
+<link rel="stylesheet" href="contato.css">
+</head>
+<body>
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <a href="index.html">
+    <img src="Imagens/ecopact.png" alt="Ecopact" class="logo" id="logoBtn1">
+  </a>
+  <div class="menu">
+      <button id="menuBtn">Menu</button>
+      <a href="perfil_cliente.html"><button>Perfil</button></a>
+      <a href="contato.html"><button>Contato</button></a>
+      <a href="sobrenos.html"><button>Sobre Nós</button></a>
+      <a href="login.html"><button>Logado</button></a>
+  </div>
+</div>
+
+<!-- ===== CONTEÚDO PRINCIPAL ===== -->
+<div class="conteudo2"></div>
+
+<!-- ===== FORMULÁRIO ===== -->
+<div class="contato-container">
+  <div class="forma">
+    <p>Quer se conectar com a <b>Ecopact?</b> Estamos prontos para ouvir <b>você.</b></p>
+  </div>
+
+  <!-- Lado esquerdo: formulário -->
+  <div class="formulario">
+    <form action="contato.php" method="POST">
+      <div class="campo">
+        <input type="text" name="nome" placeholder="nome" required>
+      </div>
+      <div class="campo">
+        <input type="email" name="email" placeholder="e-mail" required>
+      </div>
+      <div class="campo">
+        <textarea name="mensagem" placeholder="mensagem" required></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Modal de sucesso -->
+  <div class="modal-sucesso-fundo" id="modalSucesso">
+    <div class="modal-sucesso-conteudo">
+      <p>Mensagem enviada com sucesso!</p>
+      <button id="okSucesso">OK</button>
+    </div>
+  </div>
+
+  <!-- Lado direito: informações de contato -->
+  <div class="info-contato">
+    <h3>e-mail:</h3>
+    <h4>faleconosco@ecopact.com</h4>
+    <h3>telefone:</h3>
+    <h4>+00 00 0000 0000</h4>
+    <div class="icones">
+      <img src="Imagens/instagram2.png" alt="Instagram">
+      <img src="Imagens/whatsapp2.png" alt="Telefone">
+      <img src="Imagens/youtube2.png" alt="YouTube">
+      <img src="Imagens/linkedin2.png" alt="LinkedIn">
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer">
+    <div class="footer-coluna">
+      <p><b>Fique por dentro</b></p>
+      <div class="imagens_rodape">
+        <img src="Imagens/instagram.png"> &nbsp;
+        <img src="Imagens/linkdln.png"> &nbsp;
+        <img src="Imagens/youtube.png"> &nbsp;
+        <img src="Imagens/whatsap.png"> &nbsp;
+      </div>
+      <p>+ 00 00 0000 0000</p>
+      <p>faleconosco@ecopact.com</p>
+      <p>Atendimento de segunda a sexta das 9h às 18h</p>
+    </div>
+
+    <div class="footer-coluna">
+      <p><b>Ajuda</b></p>
+      <p>Política de Privacidade</p>
+      <p>Canal de Denúncias</p>
+      <p>Termos e Condições de Uso</p>
+      <p>Regulamentos</p>
+      <p>Atendimento</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const botaoEnviar = document.querySelector('.formulario button');
+  const modalSucesso = document.getElementById('modalSucesso');
+  const btnOkSucesso = document.getElementById('okSucesso');
+
+  // Ao clicar em "Enviar", abre o modal (só visual)
+  botaoEnviar.addEventListener('click', function(e) {
+    // o formulário já será enviado ao PHP, então não precisamos impedir o envio aqui
+  });
+
+  // Fecha o modal ao clicar em OK
+  btnOkSucesso.addEventListener('click', function() {
+    modalSucesso.style.display = 'none';
+  });
+</script>
+</body>
+</html>

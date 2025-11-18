@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preferências da conta</title>
+    <link rel="stylesheet" href="preferencias.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+        <a href="index.html">
+          <img src="Imagens/ecopact.png" alt="Ecopact" class="logo" id="logoBtn1">
+        </a>
+        <div class="menu">
+          <button id="menuBtn">Menu</button>
+          <a href="perfil_cliente.html"><button>Perfil</button></a>
+          <a href="contato.html"><button>Contato</button></a>
+          <a href="sobrenos.html"><button>Sobre Nós</button></a>
+          <a href="login.html"><button>Logado</button></a>
+        </div>
+        </header>
+        
+
+            <section class="preferencias">
+                <h2 class="titulo" data-txt="titulo-principal">Preferência da conta</h2>
+                <p data-txt="descricao">Personalize sua experiência da <b>Ecopact</b> de acordo com suas preferências.</p>
+    
+                <div class="secao">
+                    <p class="titulo" data-txt="aparecia-idioma">Aparência e idioma</p>
+                    <p data-txt="tema-site">Tema do site:</p>
+                    <div class="grupo-botoes">
+                        <button class="btn" data-tema="claro" data-txt="claro">Claro</button>
+                        <button class="btn" data-tema="escuro" data-txt="escuro">Escuro</button>
+                    </div>
+                    <p data-txt="idioma">Idioma preferido:</p>
+                    <div class="grupo-botoes" id="idioma-botoes">
+                        <button class="btn ativo" data-idioma="pt">Português</button>
+                        <button class="btn" data-idioma="en">Inglês</button>
+                    </div>
+                </div>
+    
+                <div class="secao">
+                    <p class="titulo" data-txt="comunicacao">Comunicação</p>
+                    <p data-txt="emails">Deseja receber e-mails sobre novos parceiros?</p>
+                    <div class="grupo-botoes">
+                        <button class="btn ativo" data-txt="sim">Sim</button>
+                        <button class="btn" data-txt="nao">Não</button>
+                    </div>
+                    <p data-txt="notificacoes">Notificações sobre eventos e campanhas:</p>
+                    <div class="grupo-botoes">
+                        <button class="btn ativo" data-txt="sim">Sim</button>
+                        <button class="btn" data-txt="nao">Não</button>
+                    </div>
+                </div>
+    
+                <div class="secao">
+                    <p class="titulo" data-txt="privacidade">Privacidade e Segurança</p>
+                    <p data-txt="visibilidade">Visibilidade do perfil:</p>
+                    <div class="grupo-botoes">
+                        <button class="btn ativo" data-txt="publico">Público</button>
+                        <button class="btn" data-txt="privado">Privado</button>
+                    </div>
+                </div>
+    
+                <div class="secao">
+                    <p class="titulo" data-txt="preferencias">Preferências sustentáveis:</p>
+                    <div class="opcoes">
+                        <button class="opcao" data-txt="reciclagem">Reciclagem</button>
+                        <button class="opcao" data-txt="energia">Energia limpa</button>
+                        <button class="opcao" data-txt="reflorestamento">Reflorestamento</button>
+                        <button class="opcao" data-txt="residuos">Redução de resíduos</button>
+                        <button class="opcao" data-txt="acoes">Ações sociais</button>
+                    </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="footer">
+                <div class="footer-coluna">
+                    <p><b>Fique por dentro</b></p>
+                    <div class="imagens_rodape">
+                        <img src="Imagens/instagram.png" alt="Instagram"> &nbsp;
+                        <img src="Imagens/linkdln.png" alt="LinkedIn"> &nbsp;  
+                        <img src="Imagens/youtube.png" alt="YouTube"> &nbsp;  
+                        <img src="Imagens/whatsap.png" alt="WhatsApp"> &nbsp;
+                    </div>
+                    <p>+ 00 00 0000 0000</p>
+                    <p>faleconosco@ecopact.com</p>
+                    <p>Atendimento de segunda a sexta das 9h às 18h</p>
+                </div>
+                <div class="footer-coluna">
+                    <p><b>Ajuda</b></p>
+                    <p>Política de Privacidade</p>
+                    <p>Canal de Denúncias</p>
+                    <p>Termos e Condições de Uso</p>
+                    <p>Regulamentos</p>
+                    <p>Atendimento</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        /*TEMA CLARO / ESCURO*/
+        function aplicarTema(tema) {
+            if (tema === "escuro") {
+                document.body.classList.add("modo-escuro");
+                localStorage.setItem("tema", "escuro");
+            } else {
+                document.body.classList.remove("modo-escuro");
+                localStorage.setItem("tema", "claro");
+            }
+        }
+
+        const temaSalvo = localStorage.getItem("tema");
+        if (temaSalvo === "escuro") document.body.classList.add("modo-escuro");
+
+        const botoesTema = document.querySelectorAll('[data-tema]');
+        botoesTema.forEach(botao => {
+            botao.addEventListener('click', () => {
+                botoesTema.forEach(b => b.classList.remove('ativo'));
+                botao.classList.add('ativo');
+                aplicarTema(botao.getAttribute('data-tema'));
+            });
+        });
+
+        /* IDIOMA (PT / EN) */
+        const traducoes = {
+            pt: {
+                "titulo-principal": "Preferência da conta",
+                "descricao": "Personalize sua experiência da <b>Ecopact</b> de acordo com suas preferências.",
+                "aparecia-idioma": "Aparência e idioma",
+                "tema-site": "Tema do site:",
+                "claro": "Claro",
+                "escuro": "Escuro",
+                "idioma": "Idioma preferido:",
+                "comunicacao": "Comunicação",
+                "emails": "Deseja receber e-mails sobre novos parceiros?",
+                "notificacoes": "Notificações sobre eventos e campanhas:",
+                "privacidade": "Privacidade e Segurança",
+                "visibilidade": "Visibilidade do perfil:",
+                "publico": "Público",
+                "privado": "Privado",
+                "preferencias": "Preferências sustentáveis:",
+                "reciclagem": "Reciclagem",
+                "energia": "Energia limpa",
+                "reflorestamento": "Reflorestamento",
+                "residuos": "Redução de resíduos",
+                "acoes": "Ações sociais",
+                "sim": "Sim",
+                "nao": "Não"
+            },
+            en: {
+                "titulo-principal": "Account Preferences",
+                "descricao": "Customize your <b>Ecopact</b> experience according to your preferences.",
+                "aparecia-idioma": "Appearance and Language",
+                "tema-site": "Website Theme:",
+                "claro": "Light",
+                "escuro": "Dark",
+                "idioma": "Preferred Language:",
+                "comunicacao": "Communication",
+                "emails": "Would you like to receive emails about new partners?",
+                "notificacoes": "Notifications about events and campaigns:",
+                "privacidade": "Privacy and Security",
+                "visibilidade": "Profile visibility:",
+                "publico": "Public",
+                "privado": "Private",
+                "preferencias": "Sustainable Preferences:",
+                "reciclagem": "Recycling",
+                "energia": "Clean energy",
+                "reflorestamento": "Reforestation",
+                "residuos": "Waste reduction",
+                "acoes": "Social actions",
+                "sim": "Yes",
+                "nao": "No"
+            }
+        };
+
+        function aplicarIdioma(idioma) {
+            document.querySelectorAll('[data-txt]').forEach(el => {
+                const chave = el.getAttribute('data-txt');
+                el.innerHTML = traducoes[idioma][chave];
+            });
+            localStorage.setItem('idioma', idioma);
+        }
+
+        const idiomaSalvo = localStorage.getItem('idioma') || 'pt';
+        aplicarIdioma(idiomaSalvo);
+
+        const botoesIdioma = document.querySelectorAll('[data-idioma]');
+        botoesIdioma.forEach(botao => {
+            botao.addEventListener('click', () => {
+                botoesIdioma.forEach(b => b.classList.remove('ativo'));
+                botao.classList.add('ativo');
+                aplicarIdioma(botao.getAttribute('data-idioma'));
+            });
+        });
+
+        /*  BOTÕES NORMAIS */
+        document.querySelectorAll('.grupo-botoes').forEach(grupo => {
+            const botoes = grupo.querySelectorAll('.btn');
+            botoes.forEach(botao => {
+                botao.addEventListener('click', () => {
+                    botoes.forEach(b => b.classList.remove('ativo'));
+                    botao.classList.add('ativo');
+                });
+            });
+        });
+
+        const opcoes = document.querySelectorAll('.opcao');
+        opcoes.forEach(opcao => {
+            opcao.addEventListener('click', () => {
+                opcao.classList.toggle('ativa');
+            });
+        });
+    </script>
+</body>
+</html>

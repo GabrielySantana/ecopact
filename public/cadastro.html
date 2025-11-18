@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro do Cliente</title>
+<link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+
+<!-- inicio da header -->
+<div class="header">
+  <a href="index.html">
+    <img src="Imagens/ecopact.png" alt="Ecopact" class="logo" id="logoBtn1" /></a>
+
+<div class="menu">
+  <button id="menuBtn">Menu</button>
+  <a href="perfil_cliente.html"><button>Perfil</button></a>
+  <a href="contato.html"><button>Contato</button></a>
+  <a href="sobrenos.html"><button>Sobre Nós</button></a>
+  <a href="login.html"><button>Logado</button></a>
+</div> 
+
+<!-- inicio do button menu-->
+<div class="modal" id="menuModal">
+  <div class="modal-content">
+      <h2>Empresas</h2>
+
+      <div class="menu-grid">
+          <div class="empresa" onclick="window.open('')">
+              <img src="Imagens/natura-logo.png"alt="Natura">
+          </div>
+
+          <div class="empresa" onclick="window.location.href='empresas/bradesco.html'">
+              <img src="Imagens/bradesco-logo.png" alt="Bradesco">
+          </div>
+
+          <div class="empresa" onclick="window.open('')">
+              <img src="Imagens/fleury-logo-.png" alt="Fleury">
+          </div>
+
+          <div class="empresa" onclick="window.open('')">
+              <img src="Imagens/Logo_of_Braskem.png" alt="Braskem">
+          </div>
+       </div> <!-- fim da div menu-grid -->
+    </div><!-- fim da div modal-content-->
+ </div><!-- fim da div modal -->
+</div> <!-- fim da header -->
+
+<!-- inicio do conteúdo principal: Forms nome, email, senha e confirmação -->
+<div class="container">
+  <div class="quadrado">
+    <div class="titulo">
+      <h2>Cadastre-se <span>aqui!</span></h2>
+    </div>
+
+    <!--inicio do formulario -->
+    <form method="POST" action="cadastro.php">
+      <div class="campo">
+        <img src="Imagens/User(4).png" alt="">
+        <input type="text" placeholder="nome" name="cliente" id="cliente" required>
+      </div>
+
+      <div class="campo">
+        <img src="Imagens/mail.png" alt="">
+        <input type="email" placeholder="e-mail" name="email" id="email" required>
+      </div>
+
+      <div class="campo">
+        <img src="Imagens/" alt="">
+        <input type="text" placeholder="telefone" name="tel" id="tel">
+      </div>
+
+      <div class="campo">
+        <img src="Imagens/" alt="">
+        <input type="text" placeholder="cpf" name="cpf" id="cpf">
+      </div>
+
+      <div class="campo">
+        <img src="Imagens/Lock.png" alt="">
+        <input type="password" placeholder="senha" name="senha" id="senha" required>
+      </div>
+
+      <div class="campo">
+        <img src="Imagens/Lock.png" alt="">
+        <input type="password" placeholder=" Confirme a senha" name="confirmar_senha" id="confirmar_senha" required>
+      </div>
+
+      <div class="botao_entrar">
+        <input type="submit" value="Entrar">
+      </div>
+
+    </form> <!-- fim do formulario-->
+  </div><!-- fim da div quadrado -->
+</div><!-- fim da containerização-->
+
+<footer> <!-- inicio do rodapé -->
+<div class="footer">
+<div class="footer-coluna">
+<p><b>Fique por dentro</b></p>
+<div class="imagens_rodape">
+<img src="Imagens/instagram.png">
+<img src="Imagens/linkdln.png">
+<img src="Imagens/youtube.png">
+<img src="Imagens/whatsap.png">
+</div>
+<p>+ 00 (00) 0000 0000</p>
+<p>faleconosco@ecopact.com</p>
+<p>Atendimento de segunda a sexta das 9h às 18h</p>
+</div>
+<div class="footer-coluna">
+<p><b>Ajuda</b></p>
+<p>Política de Privacidade</p>
+<p>Canal de Denúncias</p>
+<p>Termos e Condições de Uso</p>
+<p>Regulamentos</p>
+<p>Atendimento</p>
+</div>
+</div>
+</footer> <!-- fim do rodapé -->
+
+<script> /* script do menu */
+ const menuBtn = document.getElementById('menuBtn');
+ const menuModal = document.getElementById('menuModal');
+
+ menuBtn.addEventListener('click', () => {
+     menuModal.style.display = 'flex';
+ });
+
+ window.addEventListener('click', (e) => {
+     if (e.target === menuModal) menuModal.style.display = 'none';
+ });
+</script>
+</body>
+</html>

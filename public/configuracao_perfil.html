@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil cliente</title>
+<link rel="stylesheet" href="configuracao_perfil.css">
+</head>
+
+<body>
+<!-- HEADER  -->
+<div class="header">
+  <a href="index.html">
+    <img src="Imagens/ecopact.png" alt="Ecopact" class="logo" id="logoBtn1">
+  </a>
+  <div class="menu">
+    <button id="menuBtn">Menu</button>
+    <a href="perfil_cliente.html"><button>Perfil</button></a>
+    <a href="contato.html"><button>Contato</button></a>
+    <a href="sobrenos.html"><button>Sobre Nós</button></a>
+    <a href="login.html"><button>Logado</button></a>
+  </div>
+</div>
+
+<!--  CONTEÚDO  -->
+<div class="container">
+  <div class="fundo-decorativo"></div>
+  <div class="perfil">
+    <img src="Imagens/usuario.png" alt="Usuário" class="imagem_user">
+
+    <!-- Label que redireciona -->
+    <label class="opcao" id="infoConta">
+      <img src="Imagens/User(4).png" alt="informações da conta">
+      informações da conta
+    </label>
+
+    <label class="opcao" id="senha">
+      <img src="Imagens/Lock.png" alt="senha">
+      senha
+    </label>
+
+    <label class="opcao" id="pref">
+      <img src="Imagens/Settings.png" alt="configurações">
+      configurações
+    </label>
+
+    <label class="opcao" id="notif">
+      <img src="Imagens/Bell.png" alt="notificações">
+      notificações
+    </label>
+
+    <label class="opcao logout" id="logoutBtn">
+      <img src="Imagens/Log_out.png" alt="log out">
+      log out
+    </label>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-fundo" id="modalLogout">
+  <div class="modal-card">
+    <h3>Você realmente deseja sair?</h3>
+    <div class="modal-botoes">
+      <a href="tela_inicial.html">
+        <button class="confirmar" id="confirmarLogout">Sim, sair</button>
+      </a>
+      <a href="configuracao_perfil.html">
+      <button class="cancelar" id="cancelarLogout">Cancelar</button></a>
+    </div>
+  </div>
+</div>
+
+<!--  FOOTER  -->
+<footer>
+  <div class="footer">
+    <div class="footer-coluna">
+      <p><b>Fique por dentro</b></p>
+      <div class="imagens_rodape">
+        <img src="Imagens/instagram.png">
+        <img src="Imagens/linkdln.png">
+        <img src="Imagens/youtube.png">
+        <img src="Imagens/whatsap.png">
+      </div>
+      <p>+ 00 00 0000 0000</p>
+      <p>faleconosco@ecopact.com</p>
+      <p>Atendimento de segunda a sexta das 9h às 18h</p>
+    </div>
+    <div class="footer-coluna">
+      <p><b>Ajuda</b></p>
+      <p>Política de Privacidade</p>
+      <p>Canal de Denúncias</p>
+      <p>Termos e Condições de Uso</p>
+      <p>Regulamentos</p>
+      <p>Atendimento</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+const logoutBtn = document.getElementById('logoutBtn');
+const modal = document.getElementById('modalLogout');
+const cancelar = document.getElementById('cancelarLogout');
+const infoConta = document.getElementById('infoConta');
+const pref = document.getElementById('pref');
+
+// abre modal
+logoutBtn.addEventListener('click', () => {
+  modal.style.display = 'flex';
+});
+
+// fecha modal
+cancelar.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// redireciona ao clicar em “informações da conta”
+infoConta.addEventListener('click', () => {
+  window.location.href = 'perfil_cliente.html';
+});
+pref.addEventListener('click', () => {
+    window.location.href = 'preferencias.html'; 
+});
+notif.addEventListener('click', () => {
+    window.location.href = 'notificacoes2.html'; 
+});
+senha.addEventListener('click', () => {
+    window.location.href = 'seguranca_conta.html'; 
+});
+
+ /* script do menu */
+ const menuBtn = document.getElementById('menuBtn');
+    const menuModal = document.getElementById('menuModal');
+
+    menuBtn.addEventListener('click', () => {
+        menuModal.style.display = 'flex';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === menuModal) menuModal.style.display = 'none';
+    });
+</script>
+</body>
+</html>

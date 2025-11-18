@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notificações</title>
+<link rel="stylesheet" href="notificacoes2.css">
+</head>
+<body>
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <a href="index.html">
+    <img src="Imagens/ecopact.png" alt="Ecopact" class="logo" id="logoBtn1">
+</a>
+    <div class="menu">
+        <button id="menuBtn">Menu</button>
+        <a href="perfil_cliente.html"><button>Perfil</button></a>
+        <a href="contato.html"><button>Contato</button></a>
+        <a href="sobrenos.html"><button>Sobre Nós</button></a>
+        <a href="login.html"><button>Logado</button></a>
+    </div>
+</div>
+<!-- ===== CONTEÚDO ===== -->
+<div class="volta">
+</div>
+<div class="main">
+  <h2>Notificações</h2>
+  <div class="card-notificacoes">
+    <div class="lista-notificacoes" id="lista-notificacoes"></div>
+  </div>
+</div>
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal">
+<div class="modal-conteudo">
+<span class="fechar" onclick="fecharMensagem()">&times;</span>
+<h3 id="titulo-msg"></h3>
+<p id="texto-msg"></p>
+</div>
+</div>
+<!-- ===== FOOTER ===== -->
+<footer>
+<div class="footer">
+<div class="footer-coluna">
+<p><b>Fique por dentro</b></p>
+<div class="imagens_rodape">
+<img src="Imagens/instagram.png">
+<img src="Imagens/linkdln.png">
+<img src="Imagens/youtube.png">
+<img src="Imagens/whatsap.png">
+</div>
+<p>+ 00 00 0000 0000</p>
+<p>faleconosco@ecopact.com</p>
+<p>Atendimento de segunda a sexta das 9h às 18h</p>
+</div>
+<div class="footer-coluna">
+<p><b>Ajuda</b></p>
+<p>Política de Privacidade</p>
+<p>Canal de Denúncias</p>
+<p>Termos e Condições de Uso</p>
+<p>Regulamentos</p>
+<p>Atendimento</p>
+</div>
+</div>
+</footer>
+<!-- ===== SCRIPT ===== -->
+<script>
+const notificacoes = [
+ { titulo: "Novo desafio ecológico disponível.", tempo: "Agora", texto: "Participe do novo desafio sobre reciclagem inteligente e ganhe pontos sustentáveis!", icone: "Imagens/folha.png" },
+ { titulo: "Mensagem de parceiro.", tempo: "4h atrás", texto: "A GreenTech enviou uma mensagem sobre uma possível colaboração no seu projeto.", icone: "Imagens/mensagem.png" },
+ { titulo: "Atualização de perfil.", tempo: "Ontem", texto: "Seu perfil recebeu novas funcionalidades. Acesse e personalize suas conquistas!", icone: "Imagens/configuracoes.png" },
+ { titulo: "Seu projeto foi destaque!", tempo: "1 dia", texto: "Parabéns! Seu projeto foi um dos mais curtidos e está em destaque na Galeria Verde.", icone: "Imagens/trofeu.png" },
+ { titulo: "Comentário novo.", tempo: "3 dias", texto: "Um usuário comentou no seu projeto. Veja o feedback e responda!", icone: "Imagens/comentario.png" }
+];
+const lista = document.getElementById("lista-notificacoes");
+const modal = document.getElementById("modal");
+const tituloMsg = document.getElementById("titulo-msg");
+const textoMsg = document.getElementById("texto-msg");
+function mostrarNotificacao(n) {
+ const div = document.createElement("button");
+ div.classList.add("notificacao", "nova");
+ div.innerHTML = `
+<div style="display:flex; align-items:center; gap:10px;">
+<img src="${n.icone}" alt="" style="width:40px; height:20;">
+<span>${n.titulo}</span>
+</div>
+<span class="tempo">${n.tempo}</span>
+ `;
+ div.onclick = () => abrirMensagem(n);
+ lista.prepend(div);
+}
+  function abrirMensagem(n) {
+    tituloMsg.textContent = n.titulo;
+    textoMsg.textContent = n.texto;
+    modal.classList.add("show");
+  }
+  function fecharMensagem() {
+    modal.classList.remove("show");
+  }
+  window.onclick = e => {
+    if (e.target === modal) fecharMensagem();
+  };
+  // Simula chegada de notificações
+  let i = 0;
+  function simular() {
+    if (i < notificacoes.length) {
+      mostrarNotificacao(notificacoes[i]);
+      i++;
+      setTimeout(simular, 2500);
+    }
+  }
+  window.onload = simular;
+</script>
+    </body>
+    </html>
+</html>
